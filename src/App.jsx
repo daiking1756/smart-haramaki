@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import "./App.css";
+import Home from './Home.jsx'
+import Timer from './Timer.jsx'
+import Hungry from './Hungry.jsx'
+import Map from './Map.jsx'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [screen, setScreen] = useState("home");
+
+  const renderScreen = () => {
+    switch (screen) {
+      case "home":
+        return <Home />;
+      case "timer":
+        return <Timer />;
+      case "hungry":
+        return <Hungry />;
+      case "map":
+        return <Map />;
+      default:
+        return <Home />;
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="watch-container">
+      <div className="watch-face">
+        <div className="screen">{renderScreen()}</div>
+        <div className="buttons">
+          <button onClick={() => setScreen("home")}>🏠</button>
+          <button onClick={() => setScreen("timer")}>⏰️</button>
+          <button onClick={() => setScreen("hungry")}>🍴</button>
+          <button onClick={() => setScreen("map")}>🗺️</button>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default App
+export default App;
