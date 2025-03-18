@@ -1,0 +1,26 @@
+.compass {
+  width: 80px;
+  height: 80px;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #333;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 40%, #ddd);
+  transition: transform 0.1s ease-out;
+  position: relative; /* 矢印を前面に表示 */
+}
+
+.compass::after {
+  content: "➤"; /* 矢印アイコン */
+  font-size: 50px;
+  color: black; /* 矢印を黒くする */
+  position: absolute;
+  z-index: 10; /* 前面に表示 */
+}
+.guide-button {
+  position: absolute;
+  bottom: 40%;
+  left: 10%;
+}
