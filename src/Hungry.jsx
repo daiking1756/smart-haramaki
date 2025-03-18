@@ -56,7 +56,7 @@ const Hungry = (props) => {
   useEffect(() => {
     let timer;
     if (isEating) {
-      setInterval(() => {
+      timer = setInterval(() => {
         getPressure();
       }, 1000);
       if (fullness > 80) {
@@ -65,14 +65,17 @@ const Hungry = (props) => {
       }
     } else {
       setIsEating(false);
+      clearInterval(timer);
     }
     return () => clearInterval(timer);
   }, [isEating, fullness]);
 
   return (
     <div>
-      満腹度: {fullness}
-      <button onClick={() => setIsEating(!isEating)}>{isEating ? "⏸ Stop" : "▶ Start"}</button>
+      <label className="fullness-label">{fullness}%</label>
+      <div className="eat-button">
+        <button onClick={() => setIsEating(!isEating)}>{isEating ? "⏸ Stop" : "▶ Start"}</button>
+      </div>
       <div className="stomach-screen">
         <div className="stomach">
           <div className="stomach-content" style={{ height: `${fullness}%`, background: getStomachColor() }} />
