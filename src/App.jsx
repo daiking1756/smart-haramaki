@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./App.css";
-import Home from './Home.jsx'
 import Timer from './Timer.jsx'
 import Hungry from './Hungry.jsx'
 import Map from './Map.jsx'
