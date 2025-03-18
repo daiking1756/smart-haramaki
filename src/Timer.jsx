@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import "./Timer.css";
 import alarmSound from "./assets/Hungry03-mp3/Hungry03-1.mp3"; // アラーム音ファイルを追加
 
 const Timer = () => {
-  const defaultSecond = 10
+  const defaultSecond = 10;
   const [time, setTime] = useState(defaultSecond);
   const [isRunning, setIsRunning] = useState(false);
 
@@ -36,9 +37,7 @@ const Timer = () => {
       <h2>{formatTime(time)}</h2>
       <div className="timer-buttons">
         <button onClick={() => setTime(time + 10)}>+ 10s</button>
-        <button onClick={() => setIsRunning(!isRunning)}>
-          {isRunning ? "⏸ Stop" : "▶ Start"}
-        </button>
+        <button onClick={() => setIsRunning(!isRunning)}>{isRunning ? "⏸ Stop" : "▶ Start"}</button>
         <button onClick={() => setTime(time - 5)}>- 5s</button>
         <button onClick={() => setTime(defaultSecond)}>🔄 Reset</button>
       </div>

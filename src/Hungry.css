@@ -1,0 +1,76 @@
+.stomach-screen {
+  text-align: center;
+  color: white;
+}
+
+.stomach {
+  position: relative;
+  width: 130px;
+  height: 180px;
+  background: transparent; /* 透明背景 */
+  border: 3px solid #a94442;
+  border-radius: 50%;
+  clip-path: path("M 90 0 C 130 10, 160 40, 145 80 C 110 160, 180 180, 150 240 C 110 270, 60 260, 30 230 C 5 190, 20 140, 40 110 C 60 80, 50 40, 60 20 C 65 10, 80 0, 90 0 Z");
+  transform: rotate(-10deg);
+  overflow: hidden;
+  margin: 20px auto;
+}
+
+/* 胃の中の内容物 */
+.stomach-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #ff6347;
+  transition: height 0.5s ease-in-out, background 0.5s ease-in-out;
+}
+
+.burp-effect {
+  position: fixed; /* 画面中央に固定 */
+  top: 30%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffcc00;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  animation: burpAnimation 1s ease-out forwards;
+}
+
+/* ゲップの動き */
+@keyframes burpAnimation {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -60%) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -70%) scale(1.3);
+  }
+}
+.stomach-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.stomach-buttons button {
+  background: #444;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.stomach-buttons button:hover {
+  background: #666;
+}

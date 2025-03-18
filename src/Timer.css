@@ -1,0 +1,31 @@
+.timer-screen {
+  text-align: center;
+  color: white;
+}
+
+.timer-screen h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.timer-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.timer-buttons button {
+  background: #444;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.timer-buttons button:hover {
+  background: #666;
+}
