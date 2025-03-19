@@ -10,7 +10,6 @@ const App = () => {
   const [screen, setScreen] = useState("home");
 
   async function connectToESP32() {
-    console.log(import.meta.env.VITE_hoge);
     try {
       const device = await navigator.bluetooth.requestDevice({
         acceptAllDevices: true,
@@ -43,7 +42,7 @@ const App = () => {
       case "hungry":
         return <Hungry characteristic={characteristic} />;
       case "map":
-        return <Map />;
+        return <Map characteristic={characteristic} />;
       // default:
       //   return <Home />;
     }
