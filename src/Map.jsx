@@ -27,7 +27,7 @@ const Map = (props) => {
     // デバイスの向きを取得
     const handleOrientation = (event) => {
       let alpha = event.alpha; // デバイスの回転角度（0°〜360°）
-      if (alpha !== null) {
+      if (alpha !== null && isGuiding) {
         setDirection(alpha);
         sendAngleAndMoter(alpha, "on");
       }
@@ -40,7 +40,7 @@ const Map = (props) => {
       // コンポーネントがアンマウントされたらリスナー削除
       window.removeEventListener("deviceorientation", handleOrientation);
     };
-  }, []);
+  }, [isGuiding]);
 
   return (
     <div className="compass-container">
