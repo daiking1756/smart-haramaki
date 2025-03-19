@@ -30,6 +30,8 @@ const Map = (props) => {
       if (alpha !== null && isGuiding) {
         setDirection(alpha);
         sendAngleAndMoter(alpha, "on");
+      } else {
+        sendAngleAndMoter(0, "off");
       }
     };
 
@@ -39,6 +41,7 @@ const Map = (props) => {
     return () => {
       // コンポーネントがアンマウントされたらリスナー削除
       window.removeEventListener("deviceorientation", handleOrientation);
+      sendAngleAndMoter(0, "off");
     };
   }, [isGuiding]);
 
