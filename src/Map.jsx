@@ -50,7 +50,8 @@ const Map = (props) => {
       <div className="guide-button">
         <button onClick={() => setIsGuiding(!isGuiding)}>{isGuiding ? "⏸ Stop" : "▶ Start"}</button>
       </div>
-      <input type="number" min="0" max="360" value={Math.round(direction)} onChange={(e) => setDirection(Number(e.target.value))} />
+      <input className="spot-name" type="text" placeholder="your destination" />
+      {/* <input type="number" min="0" max="360" value={Math.round(direction)} onChange={(e) => setDirection(Number(e.target.value))} /> */}
       <div className="compass" style={{ transform: `rotate(${direction}deg)` }}>
         ➤
       </div>
