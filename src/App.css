@@ -68,3 +68,17 @@ button:active {
   transform: scale(0.95);
   transition: transform 0.1s;
 }
+
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 20vh; /* watch-container の上に収める */
+  padding-top: 10px;
+}
+
+.digital-clock {
+  /* font-size: 2rem; 小さめに調整 */
+  font-family: "Arial", sans-serif;
+  color: white;
+}

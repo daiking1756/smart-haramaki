@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Timer from "./Timer.jsx";
 import Hungry from "./Hungry.jsx";
@@ -8,6 +8,15 @@ let characteristic;
 
 const App = () => {
   const [screen, setScreen] = useState("home");
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   async function connectToESP32() {
     try {
@@ -33,7 +42,9 @@ const App = () => {
       case "home":
         return (
           <div>
-            <h2>🏠️ Home</h2>
+            <div className="home-container">
+              <h1 className="digital-clock">{time.toLocaleTimeString("ja-JP", { hour12: false })}</h1>
+            </div>
             <button onClick={() => connectToESP32()}>Connect</button>
           </div>
         );
